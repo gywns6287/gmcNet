@@ -33,4 +33,50 @@ pip install -r [CODE PATH]/requirements.txt
 ```
 #### 1.2. Input Data
 
-**expr**: gene expression data. A text file with a header line, and then one line per sample with  <img src="https://render.githubusercontent.com/render/math?math=n+1"> columns. the first column is gene name.
+**expr** : gene expression data. A text file with a header line, and then one line per sample with  <img src="https://render.githubusercontent.com/render/math?math=m">+1 columns. The first column is gene name and others are <img src="https://render.githubusercontent.com/render/math?math=m"> expression values. An example file format is in `data` folder as `sample.txt`.
+
+**TOM (optional)** :  If you already created TOM through the R library `WGCNA`, you can use them for gmcNet. The three TOMs (<img src="https://render.githubusercontent.com/render/math?math=\textbf{T}">, <img src="https://render.githubusercontent.com/render/math?math=\textbf{T}_\textbf{p}">, <img src="https://render.githubusercontent.com/render/math?math=\textbf{T}_\textbf{n}">), required to implement gmcNet, must be located in one folder with the name of (`whole.txt`, `positive.txt`, `negative.txt`), repectively. TOM files must include <img src="https://render.githubusercontent.com/render/math?math=n">-rows and <img src="https://render.githubusercontent.com/render/math?math=n">-columns, and then the <img src="https://render.githubusercontent.com/render/math?math=j">th-column of <img src="https://render.githubusercontent.com/render/math?math=i">th-row is the topological overlap measure of gene <img src="https://render.githubusercontent.com/render/math?math=i"> and <img src="https://render.githubusercontent.com/render/math?math=j">.  You can find an example files in `out/TOMs` folder.
+
+#### 1.3. Configuration
+Before excute gmcNet, you shuld set the configuration at `main.py`.
+```
+'betas' :  smoothing parameter for (whole, positive, negative) networks
+'save_TOM' : save TOM or not in output path
+'save_embed' : save embedding features or not in output path
+'n_cluster' : number of cluster (k)
+'epochs' : trainning epochs
+'lr' : trainning learning rate
+'mp_layers' : number of message passing layers
+'CEPR_features' : CEPR_embedding demesions
+'lambda' : balancing hyper-parameter
+'Lo_thr' : orthogonal threshold
+'tune_epoch' : first tunning epochs, which prevent the empty modules
+'tune_lr' : learning rate for first tunning
+'device' : used GPU device. if you don't use GPU, then write False
+```
+### 2. Execution
+
+#### 2.1. Without TOM file
+```
+python main.py --expr [expr] --out [out]
+```
+1. [expr] : `expr` file path.
+2. [out] :  Path for saving the results.
+
+#### 2.2. With TOM file
+```
+python main.py --expr [expr] --TOM [TOM] --out [out]
+```
+1. [expr] : `expr` file path.
+2. [TOM] : Path for TOM folder including three diffrent TOM files (`whole.txt`, `positive.txt`, `negative.txt`).
+3. [out] :  Path for saving the results.
+
+#### 2.3. Example-Without TOM file
+```
+python main.py --expr data/sample.txt --out out 
+```
+#### 2.4. Example-With TOM file
+```
+python main.py --expr data/sample.txt --TOM out/TOMs --out out 
+```
+
