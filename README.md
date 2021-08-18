@@ -5,7 +5,7 @@
 To identify desired gene module in WGCNA, we proposed the gmcNet. gmcNet is a GNN-based clsutering algorithm, which can cluster genes according to the co-expression topology (genes in the same module should be strongly connected) and to the single-level expression (genes in the same module should have similar expression patterns). The key innovation of gmcNet is incorporating the single-expression of genes with co-expression of their neighbor genes.
 
 ### Model Input
-gmcNet requries four inputs to implement unsupervised clustering. Let, <img src="https://render.githubusercontent.com/render/math?math=n"> the is number of genes and <img src="https://render.githubusercontent.com/render/math?math=m"> is the number of expression sample.
+gmcNet requries four inputs to implement unsupervised clustering. Let, <img src="https://render.githubusercontent.com/render/math?math=n"> is the number of genes and <img src="https://render.githubusercontent.com/render/math?math=m"> is the number of expression sample.
 1. <img src="https://render.githubusercontent.com/render/math?math=\textbf{X}\in\mathbb{R}^{n \times m}"> : Single-expression features of <img src="https://render.githubusercontent.com/render/math?math=n"> genes.
 2. <img src="https://render.githubusercontent.com/render/math?math=\textbf{T}\in\mathbb{R}^{n \times n}"> : Topological overlap matrix, which is created using the topological overlap measure between <img src="https://render.githubusercontent.com/render/math?math=n"> genes.
 3. <img src="https://render.githubusercontent.com/render/math?math=\textbf{T}_\textbf{p}\in\mathbb{R}^{n \times n}"> :  Topological overlap matrix, which is created only with gene pairs of positive correlation coefficient.
