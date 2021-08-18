@@ -1,0 +1,13 @@
+betas : (6, 9, 10)
+save_TOM : True
+save_embed : True
+n_cluster : 4
+epochs : 5000
+lr : 0.001
+mp_layers : 1
+CEPR_features : 8
+lambda : 2.2
+Lo_thr : 0.6
+tune_epoch : 100
+tune_lr : 0.01
+device : 0
