@@ -21,3 +21,16 @@ gmcNet includes a co-expression pattern recognizer (CEPR) and module classifier.
 **Module classifier** : Given CEPR-embedding feature <img src="https://render.githubusercontent.com/render/math?math=\bar{\textbf{X}}">, the module classifier computes module-assignment probability  <img src="https://render.githubusercontent.com/render/math?math=\textbf{M}\in\mathbb{R}^{n \times k}"> using a multi-layer perceptron (MLP), where <img src="https://render.githubusercontent.com/render/math?math=k"> is the number of modules. Finally, <img src="https://render.githubusercontent.com/render/math?math=i">th-row of  <img src="https://render.githubusercontent.com/render/math?math=\textbf{M}"> corresponds to module assifnment probability of gene <img src="https://render.githubusercontent.com/render/math?math=i">. In other words, gene <img src="https://render.githubusercontent.com/render/math?math=i"> belongs to module <img src="https://render.githubusercontent.com/render/math?math=c"> if <img src="https://render.githubusercontent.com/render/math?math=\textbf{M}_{ic}"> is the maximum value of the <img src="https://render.githubusercontent.com/render/math?math=i">th-row of <img src="https://render.githubusercontent.com/render/math?math=\textbf{M}">.
 
 ## Implementation
+
+### 1. Preparing
+our models were implemented by **tensorflow 2.3** in **Python 3.8.6**
+
+#### 1.1. Requirements
+  
+Requirements  can be installed through the following command in your shell.
+```
+pip install -r [CODE PATH]/requirements.txt
+```
+#### 1.2. Input Data
+
+**expr**: gene expression data. A text file with a header line, and then one line per sample with  <img src="https://render.githubusercontent.com/render/math?math=n+1"> columns. the first column is gene name.
