@@ -14,7 +14,7 @@ gmcNet requries four inputs to implement unsupervised clustering. Let, <img src=
 ### Network structure
 gmcNet includes a co-expression pattern recognizer (CEPR) and module classifier. 
 
-![fig8](https://user-images.githubusercontent.com/71325306/129822771-2f515fd4-00db-4de7-8b24-936298c1ca00.png)
+![AnyConv com__fig8 (1)](https://user-images.githubusercontent.com/71325306/135560764-fcce414b-a9f6-4c4a-926d-db549ef81fcf.png)
 
 **CEPR** : With massage passing operation, CEPR generates the embedding feature <img src="https://render.githubusercontent.com/render/math?math=\bar{\textbf{X}}\in\mathbb{R}^{n \times m'}">, which accounts for single-epxression and two diffrent co-expressions in <img src="https://render.githubusercontent.com/render/math?math=m'"> dimension. 
 
